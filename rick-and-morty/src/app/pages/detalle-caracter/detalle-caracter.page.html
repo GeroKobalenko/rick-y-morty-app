@@ -1,0 +1,52 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+  <div class="loader" *ngIf="!personaje"><ion-spinner name="crescent"></ion-spinner></div>
+  <div class="glass-content ion-padding"> 
+    <div class="ion-text-center ion-padding-top" *ngIf="personaje">
+      <ion-avatar>
+        <img [src]="personaje.image" />
+      </ion-avatar>
+      <h1>{{personaje.name}} ( {{personaje.species}} )</h1>
+      <div>Status: {{personaje.status}}</div>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="location-outline"></ion-icon>
+        <ion-label> Visto por primera vez: <br />
+          <strong>{{personaje.origin.name}}</strong></ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="location-outline"></ion-icon>
+        <ion-label>  Visto por ultima vez: <br />
+          <strong>{{personaje.location.name}}</strong></ion-label>
+      </ion-item>
+
+      <ion-item line="none" class="ion-margin-top">
+        <ion-icon slot="start" name="videocam-outline"></ion-icon>
+        <ion-label>Episodios donde aparece</ion-label>
+        <ion-icon slot="ent" name="chevron-down"></ion-icon>
+      </ion-item>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let episodio of episodios" size-lg="4" size-md="6" size-sm="6" size="12">
+            <ion-card>
+              <ion-card-content class="ion-text-start">
+                <strong>{{episodio.name}}</strong>
+                <p>{{episodio.episode}}</p>
+                <p>Fecha de emision: {{episodio.air_date | date: 'dd/MM/YYYY'}}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

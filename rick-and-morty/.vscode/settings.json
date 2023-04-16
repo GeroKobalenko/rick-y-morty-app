@@ -1,0 +1,10 @@
+{
+	"angular.enable-strict-mode-prompt": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true,
+	"editor.formatOnSave": true,
+	"prettier.tabWidth": 4,
+	"editor.tabSize": 4,
+	"typescript.preferences.importModuleSpecifier": "relative"
+}
